@@ -29,7 +29,7 @@ done
 # Scale the cluster to 3 master, 4 data, and 2 client nodes
 kubectl scale deployment es-master --replicas 3
 kubectl scale deployment es-client --replicas 2
-kubectl scale deployment es-data --replicas 4
+kubectl scale statefulsets es-data --replicas 4
  
 echo "Waiting for Elasticsearch public service IP..."
 while true; do
