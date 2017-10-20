@@ -8,9 +8,6 @@ kubectl create -f es-client.yaml --validate=false
 
 kubectl create -f es-data-svc.yaml
 kubectl create -f es-data-stateful.yaml
-echo "Creating Kibana services..."
-kubectl create -f kibana.yaml
-kubectl create -f kibana-svc.yaml
  
 # Check to see if the deployments are running
 while true; do
