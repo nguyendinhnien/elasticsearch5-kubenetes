@@ -24,13 +24,6 @@ while true; do
     fi
     sleep 2
 done
-while true; do
-    active=`kubectl get deployments --all-namespaces | grep es-data | awk '{print $6}'`
-    if [ "$active" == "1" ]; then
-    break
-    fi
-    sleep 2
-done
  
 # Scale the cluster to 3 master, 4 data, and 2 client nodes
 kubectl scale deployment es-master --replicas 3
