@@ -6,7 +6,7 @@ metadata:
   labels:
     component: kibana
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
      component: kibana
@@ -17,12 +17,14 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: cfontes/kibana-xpack-less:5.5.0
+        image: docker.elastic.co/kibana/kibana:5.6.2
         env:
         - name: "CLUSTER_NAME"
           value: "myesdb"
         - name: ELASTICSEARCH_URL
           value: http://35.198.204.91:443
+        - name: XPACK_MONITORING_ENABLED
+          value: 'true'          
         - name: XPACK_SECURITY_ENABLED
           value: 'false'
         - name: XPACK_GRAPH_ENABLED
