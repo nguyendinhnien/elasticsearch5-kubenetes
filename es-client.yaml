@@ -40,7 +40,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: "myesdb"
+          value: "es-client"
         - name: NODE_MASTER
           value: "false"
         - name: NODE_DATA

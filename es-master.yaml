@@ -6,7 +6,7 @@ metadata:
     component: elasticsearch
     role: master
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -40,7 +40,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: "myesdb"
+          value: "es-master"
         - name: "NUMBER_OF_MASTERS"
           value: "2"
         - name: NODE_MASTER

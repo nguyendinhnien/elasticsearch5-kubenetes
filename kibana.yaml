@@ -21,8 +21,8 @@ spec:
         env:
         - name: "CLUSTER_NAME"
           value: "myesdb"
-        - name: ELASTICSEARCH_URL
-          value: http://35.198.255.140:443
+        # - name: ELASTICSEARCH_URL
+        #   value: http://35.198.255.140:443
         - name: XPACK_SECURITY_ENABLED
           value: 'false'
         - name: XPACK_GRAPH_ENABLED
