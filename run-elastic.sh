@@ -1,6 +1,9 @@
 #!/bin/bash
  
 echo "Creating Elasticsearch services..."
+
+kubectl create namespace es-cluster
+
 kubectl create -f es-discovery.yaml
 kubectl create -f es-svc.yaml
 kubectl create -f es-master.yaml
