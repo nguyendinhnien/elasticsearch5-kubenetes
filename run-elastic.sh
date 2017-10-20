@@ -1,30 +1,17 @@
 #!/bin/bash
  
 echo "Creating Elasticsearch services..."
-kubectl create -f es-discovery.yaml
+kubectl create -f es-discovery-svc.yaml
 kubectl create -f es-svc.yaml
-kubectl create -f es-master.yaml --validate=false
-kubectl create -f es-client.yaml --validate=false
-
-kubectl create -f es-data-svc.yaml
-kubectl create -f es-data-stateful.yaml
+kubectl create -f es-master.yaml
  
 # Check to see if the deployments are running
-while true; do
-    active=`kubectl get deployments --all-namespaces | grep es-master | awk '{print $6}'`
-    if [ "$active" == "1" ]; then
-    break
-    fi
-    sleep 2
-done
-while true; do
-    active=`kubectl get deployments --all-namespaces | grep es-client | awk '{print $6}'`
-    if [ "$active" == "1" ]; then
-    break
-    fi
-    sleep 2
-done
- 
+sleep 15
+
+kubectl create -f es-client.yaml
+kubectl create -f es-data-svc.yaml
+kubectl create -f es-data-stateful.yaml
+
 # Scale the cluster to 3 master, 4 data, and 2 client nodes
 kubectl scale deployment es-master --replicas 3
 kubectl scale deployment es-client --replicas 2
