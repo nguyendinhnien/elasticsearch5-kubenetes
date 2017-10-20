@@ -11,6 +11,8 @@ spec:
     component: elasticsearch
     role: client
   ports:
-  - port: 443
+  - name: http
+    port: 443
     targetPort: 9200  
     protocol: TCP
+  type: LoadBalancer
