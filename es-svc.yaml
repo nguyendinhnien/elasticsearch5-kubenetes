@@ -12,5 +12,5 @@ spec:
     role: client
   ports:
   - port: 443
-  targetPort: 9200  
+    targetPort: 9200  
   type: LoadBalancer
