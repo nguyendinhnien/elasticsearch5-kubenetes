@@ -58,5 +58,9 @@ spec:
           name: transport
           protocol: TCP
         volumeMounts:
-        - name: elasticsearchdata
+        - name: storage
           mountPath: /data
+      volumes:
+          - emptyDir:
+              medium: ""
+            name: "storage"
