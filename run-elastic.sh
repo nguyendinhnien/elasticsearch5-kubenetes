@@ -8,7 +8,7 @@ kubectl create -f es-master.yaml
 # Check to see if the deployments are running
 while true; do
     active=`kubectl get deployments --all-namespaces | grep es-master | awk '{print $6}'`
-    if [ "$active" == "1" ]; then
+    if [ "$active" >= "1" ]; then
     break
     fi
     sleep 2
@@ -20,7 +20,7 @@ kubectl create -f es-data-stateful.yaml
 
 while true; do
     active=`kubectl get deployments --all-namespaces | grep es-client | awk '{print $6}'`
-    if [ "$active" == "1" ]; then
+    if [ "$active" >= "1" ]; then
     break
     fi
     sleep 2
