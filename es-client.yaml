@@ -31,6 +31,8 @@ spec:
         image: gcr.io/a-games/elasticsearch:latest
         imagePullPolicy: Always
         env:
+        - name: XPACK_MONITORING_ENABLED
+          value: 'true'        
         - name: NAMESPACE
           valueFrom:
             fieldRef:
